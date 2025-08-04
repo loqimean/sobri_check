@@ -1,0 +1,11 @@
+<%= turbo_stream.update "results-container" do %>
+  <% if @result.present? %>
+    <div class="mb-8 animate-fade-in" data-sobri-target="resultsContainer">
+      <%= render "home/partials/shared/analysis_result", result: @result %>
+    </div>
+  <% end %>
+<% end %>
+
+<%= turbo_stream.update "analyze-button" do %>
+  <%= render "home/partials/shared/analyze_button" %>
+<% end %>

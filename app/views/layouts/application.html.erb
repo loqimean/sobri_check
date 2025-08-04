@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Sobri Check" %></title>
+    <title><%= content_for(:title) || "Sobri Check - AI-Powered Message Safety Checker" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
+    <meta name="description" content="Check if your message is safe to send using AI. Perfect for emotional moments or when you've had a few drinks.">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -22,9 +23,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
-    </main>
+  <body class="bg-gray-50">
+    <%= yield %>
   </body>
 </html>

@@ -1,0 +1,24 @@
+<footer class="border-t border-gray-200 bg-white">
+  <div class="max-w-4xl mx-auto px-6 py-8">
+    <div class="flex flex-col items-center justify-center space-y-4">
+      <!-- Inspired by YouTube video link -->
+      <div class="flex items-center space-x-2">
+        <span class="text-sm text-gray-500">Inspired by</span>
+        <%= link_to("https://youtu.be/ee2iO1LVdnY?si=_uNdSPDo8ACQ-dfc&t=28",
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                    class: "inline-flex items-center space-x-2 px-3 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-lg transition-all duration-200 hover:shadow-lg") do %>
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M23.498 6.186a2.988 2.988 0 0 0-2.103-2.103C19.586 3.5 12 3.5 12 3.5s-7.586 0-9.395.583A2.988 2.988 0 0 0 .502 6.186C0 8.086 0 12 0 12s0 3.914.502 5.814a2.988 2.988 0 0 0 2.103 2.103C4.414 20.5 12 20.5 12 20.5s7.586 0 9.395-.583a2.988 2.988 0 0 0 2.103-2.103C24 15.914 24 12 24 12s0-3.914-.502-5.814zM9.75 15.568V8.432L15.75 12l-6 3.568z"/>
+          </svg>
+          <span>YouTube Video</span>
+        <% end %>
+      </div>
+
+      <!-- Copyright -->
+      <div class="text-xs text-gray-400 text-center">
+        © <%= Time.current.year %> Sobri Check. Built with ❤️ using Rails & AI.
+      </div>
+    </div>
+  </div>
+</footer>

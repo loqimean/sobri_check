@@ -1,0 +1,118 @@
+<% if result[:demo_mode] %>
+  <div class="mb-4 p-4 bg-blue-50 border border-blue-200 rounded-xl animate-slide-down">
+    <div class="flex items-center">
+      <span class="text-blue-600 mr-2">ℹ️</span>
+      <span class="text-blue-800 font-medium">Demo Mode:</span>
+      <span class="text-blue-700 ml-1">Add your DeepSeek API key for full AI analysis</span>
+    </div>
+  </div>
+<% end %>
+
+<% case result[:status] %>
+<% when 'safe' %>
+  <div class="bg-green-50 border-l-4 border-green-400 rounded-r-xl p-8 animate-slide-up">
+    <div class="flex items-start">
+      <div class="flex-shrink-0">
+        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center animate-bounce-once">
+          <span class="text-2xl">✅</span>
+        </div>
+      </div>
+      <div class="ml-6 flex-1">
+        <h3 class="text-2xl font-bold text-green-800 mb-2">Safe to Send!</h3>
+        <p class="text-green-700 text-lg leading-relaxed mb-4"><%= result[:message] %></p>
+        <div class="flex items-center text-sm text-green-600">
+          <span class="font-semibold">Confidence: </span>
+          <div class="ml-2 flex-1 bg-green-200 rounded-full h-2 max-w-xs">
+            <div class="bg-green-500 h-2 rounded-full animate-progress" style="width: <%= result[:confidence] %>%"></div>
+          </div>
+          <span class="ml-2"><%= result[:confidence] %>%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<% when 'warning' %>
+  <div class="bg-yellow-50 border-l-4 border-yellow-400 rounded-r-xl p-8 animate-slide-up">
+    <div class="flex items-start">
+      <div class="flex-shrink-0">
+        <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center animate-pulse-once">
+          <span class="text-2xl">⚠️</span>
+        </div>
+      </div>
+      <div class="ml-6 flex-1">
+        <h3 class="text-2xl font-bold text-yellow-800 mb-2">Think Twice</h3>
+        <p class="text-yellow-700 text-lg leading-relaxed mb-4"><%= result[:message] %></p>
+        <% if result[:suggestions].any? %>
+          <div class="mb-4 animate-fade-in-delayed">
+            <h4 class="font-semibold text-yellow-800 mb-2">Suggestions:</h4>
+            <ul class="text-yellow-700 space-y-1">
+              <% result[:suggestions].each do |suggestion| %>
+                <li class="flex items-start animate-slide-in-left">
+                  <span class="text-yellow-500 mr-2">•</span>
+                  <%= suggestion %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="flex items-center text-sm text-yellow-600">
+          <span class="font-semibold">Confidence: </span>
+          <div class="ml-2 flex-1 bg-yellow-200 rounded-full h-2 max-w-xs">
+            <div class="bg-yellow-500 h-2 rounded-full animate-progress" style="width: <%= result[:confidence] %>%"></div>
+          </div>
+          <span class="ml-2"><%= result[:confidence] %>%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<% when 'danger' %>
+  <div class="bg-red-50 border-l-4 border-red-400 rounded-r-xl p-8 animate-slide-up">
+    <div class="flex items-start">
+      <div class="flex-shrink-0">
+        <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center animate-shake">
+          <span class="text-2xl">🚨</span>
+        </div>
+      </div>
+      <div class="ml-6 flex-1">
+        <h3 class="text-2xl font-bold text-red-800 mb-2">Don't Send This!</h3>
+        <p class="text-red-700 text-lg leading-relaxed mb-4"><%= result[:message] %></p>
+        <% if result[:suggestions].any? %>
+          <div class="mb-4 animate-fade-in-delayed">
+            <h4 class="font-semibold text-red-800 mb-2">Better alternatives:</h4>
+            <ul class="text-red-700 space-y-1">
+              <% result[:suggestions].each do |suggestion| %>
+                <li class="flex items-start animate-slide-in-left">
+                  <span class="text-red-500 mr-2">•</span>
+                  <%= suggestion %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="flex items-center text-sm text-red-600">
+          <span class="font-semibold">Confidence: </span>
+          <div class="ml-2 flex-1 bg-red-200 rounded-full h-2 max-w-xs">
+            <div class="bg-red-500 h-2 rounded-full animate-progress" style="width: <%= result[:confidence] %>%"></div>
+          </div>
+          <span class="ml-2"><%= result[:confidence] %>%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<% when 'error' %>
+  <div class="bg-gray-50 border-l-4 border-gray-400 rounded-r-xl p-8 animate-slide-up">
+    <div class="flex items-start">
+      <div class="flex-shrink-0">
+        <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center">
+          <span class="text-2xl">❌</span>
+        </div>
+      </div>
+      <div class="ml-6 flex-1">
+        <h3 class="text-2xl font-bold text-gray-800 mb-2">Oops! Something went wrong</h3>
+        <p class="text-gray-700 text-lg leading-relaxed mb-4"><%= result[:message] %></p>
+      </div>
+    </div>
+  </div>
+<% end %>

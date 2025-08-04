@@ -1,4 +1,24 @@
-<div>
-  <h1 class="font-bold text-4xl">Home#index</h1>
-  <p>Find me in app/views/home/index.html.erb</p>
+<div class="min-h-screen bg-white" data-controller="sobri" data-sobri-analyzing-value="false">
+  <%= render "home/partials/index/header" %>
+
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto px-6 py-12">
+    <%= render "home/partials/index/hero" %>
+    <%= render "home/partials/index/message_form" %>
+
+    <!-- Results Section -->
+    <div id="results-container" data-sobri-target="resultsContainer">
+      <% if @result %>
+        <div class="mb-8">
+          <%= render "home/partials/shared/analysis_result", result: @result %>
+        </div>
+      <% end %>
+    </div>
+
+    <%= render "home/partials/index/features" %>
+    <%= render "home/partials/index/disclaimer" %>
+  </main>
+
+  <%= render "shared/footer" %>
+  <%= render "home/partials/index/modal" %>
 </div>
