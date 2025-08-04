@@ -1,0 +1,20 @@
+# PostgreSQL. Versions 9.3 and up are supported.
+#
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: <%= ENV.fetch("SOBRI_CHECK_DATABASE_HOST") { "localhost" } %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV.fetch("SOBRI_CHECK_DATABASE_USERNAME") { "sobri_check" } %>
+  password: <%= ENV["SOBRI_CHECK_DATABASE_PASSWORD"] %>
+  port: <%= ENV.fetch("SOBRI_CHECK_DATABASE_PORT") { "5432" } %>
+
+development:
+  <<: *default
+  database: sobri_check_development
+test:
+  <<: *default
+  database: sobri_check_test
+production:
+  <<: *default
+  database: sobri_check_production
