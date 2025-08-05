@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+#analyze-button button {
+  @apply cursor-pointer;
+}
