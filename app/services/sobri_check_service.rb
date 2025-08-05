@@ -107,7 +107,7 @@ class SobriCheckService
     {
       status: status,
       message: content.truncate(100),
-      suggestions: ["Consider reviewing your message when sober"],
+      suggestions: [ "Consider reviewing your message when sober" ],
       confidence: 50
     }
   end
@@ -116,7 +116,7 @@ class SobriCheckService
     {
       status: "error",
       message: message,
-      suggestions: ["Please try again later"],
+      suggestions: [ "Please try again later" ],
       confidence: 0
     }
   end
