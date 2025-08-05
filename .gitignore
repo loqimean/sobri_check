@@ -19,7 +19,7 @@
 .AppleDouble
 .LSOverride
 
-# Icon must end with two 
+# Icon must end with two
 Icon
 
 
@@ -303,8 +303,6 @@ fabric.properties
 
 # Ignore code-workspaces
 *.code-workspace
-
-config/database.yml
 
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
