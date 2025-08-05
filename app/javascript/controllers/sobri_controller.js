@@ -5,7 +5,6 @@ export default class extends Controller {
   static values = { analyzing: Boolean }
 
   connect() {
-    console.log("Sobri Check controller connected")
     this.updateButtonStates()
   }
 
@@ -147,11 +146,6 @@ export default class extends Controller {
 
       // Prevent body scroll
       document.body.style.overflow = 'hidden'
-    } else {
-      console.log("Modal targets not found:", {
-        hasModal: this.hasModalTarget,
-        hasResults: this.hasResultsContainerTarget
-      })
     }
   }
 
