@@ -41,7 +41,7 @@ gem "thruster", require: false
 # gem "image_processing", "~> 1.2"
 
 # AI/LLM integration
-gem "ruby_llm", "~> 1.5.1"
+gem "ruby_llm", "~> 1.6.0"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
